@@ -1,10 +1,9 @@
 import React from "react";
 import classes from "../Styles/Illustration.module.css";
-import image from '../assets/images/signup.svg'
-export default function Illustration() {
+export default function Illustration({image, altText}) {
   return (
     <div className={classes.illustration}>
-      <img src={image} alt="Signup" />
+      <img src={image} alt={altText} />
     </div>
   );
 }
