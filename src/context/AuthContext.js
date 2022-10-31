@@ -49,10 +49,14 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     const auth = getAuth();
+    console.log('auth:', auth);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log('user:',user);
       setCurrentUser(user);
       setLoading(false);
     });
+
+    console.log('unsubscribe: ',unsubscribe);
 
     return unsubscribe;
   }, []);
@@ -66,7 +70,7 @@ export default function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {loading && children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
