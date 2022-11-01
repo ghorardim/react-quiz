@@ -29,14 +29,12 @@ export default function useVideoList(page) {
         setError(false);
         setLoading(true);
         const snapshot = await get(videoQuery);
-        console.log('snapshot:', snapshot.exists());
-        console.log('videos:', ...Object.values(snapshot.val()));
         setLoading(false);
         if (snapshot.exists()) {
           /* setVideos((prevVideos) => {
             return [...prevVideos, ...Object.values(snapshot.val())];
           }); */
-          setVideos(Object.values(snapshot.val()));
+          setVideos([...videos, ...Object.values(snapshot.val())]);
         } else {
           setHasMore(false);
         }
