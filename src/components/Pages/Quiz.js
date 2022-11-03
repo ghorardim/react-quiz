@@ -74,12 +74,7 @@ export default function Quiz() {
       [id]: qna,
     });
 
-    navigate({
-      pathname: `/result/${id}`,
-      state: {
-        qna,
-      },
-    });
+    navigate(`/result/${id}`, { state: { qna } });
   };
 
   const percentage =
@@ -96,6 +91,7 @@ export default function Quiz() {
           <Answers
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
+            input={true}
           />
           <ProgressBar
             next={nextQuestion}
