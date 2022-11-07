@@ -7,6 +7,8 @@ import Quiz from './Pages/Quiz';
 import Result from './Pages/Result';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AuthProvider from '../context/AuthContext';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
         <Layout>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/quiz" element={<Quiz />} />
-            <Route exact path="/result" element={<Result />} />
+            <Route exact path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+            <Route exact path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+            <Route exact path="/quiz/:id" element={<PrivateRoute><Quiz /></PrivateRoute>} />
+            <Route exact path="/result/:id" element={<PrivateRoute><Result /></PrivateRoute>} />
           </Routes>
         </Layout>
       </AuthProvider>
