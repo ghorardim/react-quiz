@@ -99,7 +99,7 @@ export default function Quiz() {
             progress={percentage}
             submit={submit}
           />
-          <MiniPlayer />
+          <MiniPlayer id={id} title={qna[currentQuestion].title} />
         </>
       )}
     </>
