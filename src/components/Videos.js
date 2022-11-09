@@ -17,7 +17,7 @@ export default function Videos() {
           next={() => setPage(page + 8)}>
           {videos.map((video) =>
             video.noq > 0 ? (
-              <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
+              <Link to={`/quiz/${video.youtubeID}`} state={{videoTitle: video.title}} key={video.youtubeID}>
                 <Video
                   title={video.title}
                   id={video.youtubeID}
