@@ -34,8 +34,12 @@ export default function Result() {
     <>
       {error && <div>There was an error!</div>}
       {loading && <div>Loading...</div>}
-      <Summary score={userScore} noq={qna.length} />
-      <Analysis answers={answers} corretCnt={userScore / 5} noq={qna.length}/>
+      {answers && answers.length > 0 && (
+        <>
+          <Summary score={userScore} noq={answers.length} />
+          <Analysis answers={answers} />
+        </>
+      )}
     </>
   );
 }
